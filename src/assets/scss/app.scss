@@ -3,17 +3,17 @@
 
 
 //Color Pallete
-$PrimaryBackground: rgb(243, 243, 243) ;
-$SecondaryBackground: rgb(0, 82, 175) ;
-$fontC: rgb(58, 58, 58);
+$PrimaryBackground: #d8e9ef ;
+$SecondaryBackground: #e85a71 ;
+$fontC: #454552;
 $aC: rgb(24, 18, 104);
 $aHovC: rgb(36, 69, 255);
 $btnHovC: rgb(30, 58, 216);
 $borderC: rgb(221, 221, 221);
 
 $seafoam: rgb(0, 217, 255);
-$lightblue: rgb(52, 100, 255);
-$darkBlue: rgb(40, 74, 185);
+$lightblue: #4ea1d3;
+$berryRed: #e85a71;
 $alertOrange: rgb(255, 128, 44);
 
 body {
@@ -41,10 +41,10 @@ body {
         .NavItems {
             font-size: 18px;
             margin-left: 10px;
-            color: $aC;
+            color: $SecondaryBackground;
 
             &:hover {
-                color: $aHovC;
+                color: $lightblue;
             }
         }
     }
@@ -56,7 +56,7 @@ body {
     position: relative;
     height: 500px;
     width: 100%;
-    background: linear-gradient(to bottom right, $seafoam, $lightblue);
+    background: linear-gradient(to bottom right, $berryRed, $lightblue);
 }
 
 //Home.js
@@ -216,11 +216,11 @@ body {
         img {
             width: 100%;
             height: 180px;
-            background: linear-gradient(to bottom right, $seafoam, $lightblue);
+            background: linear-gradient(to bottom right, $berryRed, $lightblue);
         }
 
         .btn {
-            background: linear-gradient(to bottom right, $lightblue, $darkBlue);
+            background: linear-gradient(to bottom right, $lightblue, $seafoam);
             outline: none;
             border: none;
 

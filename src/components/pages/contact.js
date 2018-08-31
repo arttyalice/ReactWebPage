@@ -9,7 +9,7 @@ class Contact extends Component {
         return (
             <div className="contact">
                 <div className="Container">
-                    <h1>About Us</h1>
+                    <h1>Contact Us</h1>
                     <hr/>
 
                     <p>BANGKOK, Thailand <br/>Orbits DVL <br/>Ladkrabang…………………………………….. <br/>Tel: <br/>Fax: <br/>Email: </p>

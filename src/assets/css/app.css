@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Kanit|Prompt");
 body {
   font-family: Prompt, Kanit;
-  color: #3a3a3a; }
+  color: #454552; }
 
 .Header {
   width: 100%; }
   .Header .NavHeader {
-    background-color: #f3f3f3; }
+    background-color: #d8e9ef; }
     .Header .NavHeader img {
       height: 50px;
       margin: -15px; }
@@ -16,15 +16,15 @@ body {
     .Header .NavHeader .NavItems {
       font-size: 18px;
       margin-left: 10px;
-      color: #181268; }
+      color: #e85a71; }
       .Header .NavHeader .NavItems:hover {
-        color: #2445ff; }
+        color: #4ea1d3; }
 
 .CarouselStyle {
   position: relative;
   height: 500px;
   width: 100%;
-  background: linear-gradient(to bottom right, #00d9ff, #3464ff); }
+  background: linear-gradient(to bottom right, #e85a71, #4ea1d3); }
 
 .HomeContent {
   width: 100%; }
@@ -41,7 +41,7 @@ body {
     font-size: 18px; }
 
 .ContentStyle {
-  color: #3a3a3a;
+  color: #454552;
   width: 80%;
   margin-left: 10%; }
 
@@ -60,7 +60,7 @@ body {
   width: 80%;
   padding: 15px; }
   .PropotyStyle .searchNav .btn {
-    background: linear-gradient(to bottom right, #00d9ff, #3464ff);
+    background: linear-gradient(to bottom right, #00d9ff, #4ea1d3);
     outline: none;
     border: none; }
     .PropotyStyle .searchNav .btn:hover {
@@ -130,9 +130,9 @@ body {
     .cardContainer .card img {
       width: 100%;
       height: 180px;
-      background: linear-gradient(to bottom right, #00d9ff, #3464ff); }
+      background: linear-gradient(to bottom right, #e85a71, #4ea1d3); }
     .cardContainer .card .btn {
-      background: linear-gradient(to bottom right, #3464ff, #284ab9);
+      background: linear-gradient(to bottom right, #4ea1d3, #00d9ff);
       outline: none;
       border: none; }
       .cardContainer .card .btn:hover {

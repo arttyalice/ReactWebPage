@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css?family=Kanit|Prompt");
+body {
+  font-family: Prompt, Kanit;
+  color: #3a3a3a; }
+
+.Header {
+  width: 100%; }
+  .Header .NavHeader {
+    background-color: #f3f3f3; }
+    .Header .NavHeader img {
+      height: 50px;
+      margin: -15px; }
+    .Header .NavHeader .imgNav {
+      margin: 0 -3px 0 0px;
+      height: 30px; }
+    .Header .NavHeader .NavItems {
+      font-size: 18px;
+      margin-left: 10px;
+      color: #181268; }
+      .Header .NavHeader .NavItems:hover {
+        color: #2445ff; }
+
+.CarouselStyle {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(to bottom right, #00d9ff, #3464ff); }
+
+.HomeContent {
+  width: 100%; }
+  .HomeContent h1 {
+    margin: 15px 0 0 0;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center; }
+  .HomeContent h2 {
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: bold; }
+  .HomeContent p {
+    font-size: 18px; }
+
+.ContentStyle {
+  color: #3a3a3a;
+  width: 80%;
+  margin-left: 10%; }
+
+.contact {
+  width: 100%; }
+  .contact .row {
+    margin: 0;
+    padding: 10px; }
+  .contact .contactSide {
+    margin: 0;
+    width: 30%; }
+
+.PropotyStyle .searchNav {
+  margin: auto;
+  margin-top: 35px;
+  width: 80%;
+  padding: 15px; }
+  .PropotyStyle .searchNav .btn {
+    background: linear-gradient(to bottom right, #00d9ff, #3464ff);
+    outline: none;
+    border: none; }
+    .PropotyStyle .searchNav .btn:hover {
+      background-color: #1e3ad8; }
+  .PropotyStyle .searchNav .SearchGrp {
+    width: 100%;
+    margin: 15px 0 15px 0; }
+  .PropotyStyle .searchNav .nav-tabs {
+    border-bottom: 1px solid #dddddd; }
+  .PropotyStyle .searchNav .nav-tabs.nav-item.show .nav-link, .PropotyStyle .searchNav .nav-tabs .nav-link.active {
+    border-color: #dddddd #dddddd #fff; }
+  .PropotyStyle .searchNav .tab-content {
+    border: solid 1px #dddddd;
+    border-top: none;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 15px; }
+
+.PropotyStyle h1 {
+  margin: 15px 0 0 0;
+  font-weight: bolder;
+  width: 100%;
+  text-align: center; }
+
+.PropotyStyle h2 {
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold; }
+
+.PropotyStyle p {
+  font-size: 18px; }
+
+.PropotyStyle .row {
+  margin: 0; }
+
+.Container h1 {
+  font-size: 32px;
+  text-align: center;
+  font-weight: bolder; }
+
+.Container h4 {
+  margin: 0 0 0 25px; }
+
+.Container p {
+  text-align: justify;
+  margin: 20px 20px 20px 50px; }
+  .Container p.normaltext {
+    margin: 20px 20px 20px 25px; }
+  .Container p.indentText {
+    text-indent: 50px; }
+
+.Container ul li {
+  margin: 5px 5px 5px 50px; }
+
+.Container img {
+  width: 50%;
+  margin: 0 0 30px 25%; }
+
+.cardContainer {
+  margin: 0 0 30px 0; }
+  .cardContainer .card {
+    height: 350px;
+    width: 310px;
+    margin: auto;
+    margin-top: 15px; }
+    .cardContainer .card img {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(to bottom right, #00d9ff, #3464ff); }
+    .cardContainer .card .btn {
+      background: linear-gradient(to bottom right, #3464ff, #284ab9);
+      outline: none;
+      border: none; }
+      .cardContainer .card .btn:hover {
+        background-color: #1e3ad8; }

@@ -1,0 +1,232 @@
+//font from google
+@import url('https://fonts.googleapis.com/css?family=Kanit|Prompt');
+
+
+//Color Pallete
+$PrimaryBackground: rgb(243, 243, 243) ;
+$SecondaryBackground: rgb(0, 82, 175) ;
+$fontC: rgb(58, 58, 58);
+$aC: rgb(24, 18, 104);
+$aHovC: rgb(36, 69, 255);
+$btnHovC: rgb(30, 58, 216);
+$borderC: rgb(221, 221, 221);
+
+$seafoam: rgb(0, 217, 255);
+$lightblue: rgb(52, 100, 255);
+$darkBlue: rgb(40, 74, 185);
+$alertOrange: rgb(255, 128, 44);
+
+body {
+    font-family: Prompt, Kanit;
+    color: $fontC;
+}
+
+//Header
+.Header {
+    width: 100%;
+
+    .NavHeader {
+        background-color: $PrimaryBackground;
+
+        img {
+            height: 50px;
+            margin: -15px;
+        }
+
+        .imgNav {
+            margin: 0 -3px 0 0px;
+            height: 30px;
+        }
+        
+        .NavItems {
+            font-size: 18px;
+            margin-left: 10px;
+            color: $aC;
+
+            &:hover {
+                color: $aHovC;
+            }
+        }
+    }
+}
+
+//Home Page
+//Slide.js
+.CarouselStyle {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(to bottom right, $seafoam, $lightblue);
+}
+
+//Home.js
+.HomeContent {
+    width: 100%;
+    
+    h1 {
+        margin: 15px 0 0 0; 
+        font-weight: bolder;
+        width: 100%;
+        text-align: center;
+    }
+    
+    h2 {
+        margin-top: 20px; 
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
+
+//content.js
+.ContentStyle {
+    color: $fontC;
+    width: 80%;
+    margin-left: 10%;
+}
+
+//Contact.js
+.contact {
+    width: 100%;
+    
+
+    .row {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .contactSide {
+        margin: 0;
+        width: 30%;
+    }
+}
+
+.PropotyStyle {
+
+    .searchNav {
+        margin: auto;
+        margin-top: 35px;
+        width: 80%;
+        padding: 15px;
+
+        .btn {
+            background: linear-gradient(to bottom right, $seafoam, $lightblue);
+            outline: none;
+            border: none;
+
+            &:hover {
+                background-color: $btnHovC;
+            }
+        }
+
+        .SearchGrp {
+            width: 100%;
+            margin: 15px 0 15px 0;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid $borderC;
+        }
+
+        .nav-tabs.nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            border-color: $borderC $borderC #fff;
+        }
+
+        .tab-content {
+            border: solid 1px $borderC;
+            border-top: none;
+            border-radius: 5px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            padding: 15px;
+        }
+    }
+
+    h1 {
+        margin: 15px 0 0 0; 
+        font-weight: bolder;
+        width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px; 
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .row {
+        margin: 0;
+    }
+}
+
+.Container {
+
+    h1 {
+        font-size: 32px;
+        text-align: center;
+        font-weight: bolder;
+    }
+
+    h4 {
+        margin: 0 0 0 25px;
+    }
+
+    p {
+        text-align: justify;
+        margin: 20px 20px 20px 50px;
+
+        &.normaltext {
+            margin: 20px 20px 20px 25px;
+        }
+
+        &.indentText {
+            text-indent: 50px;
+        }
+    }
+
+    ul {
+        li {
+            margin: 5px 5px 5px 50px; 
+        }
+    }
+
+    img {
+        width: 50%;
+        margin: 0 0 30px 25%;
+    }
+}
+
+.cardContainer {
+    margin: 0 0 30px 0;
+
+    .card {
+        height: 350px;
+        width: 310px;
+        margin: auto;
+        margin-top: 15px;
+
+        img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom right, $seafoam, $lightblue);
+        }
+
+        .btn {
+            background: linear-gradient(to bottom right, $lightblue, $darkBlue);
+            outline: none;
+            border: none;
+
+            &:hover {
+                background-color: $btnHovC;
+            }
+        }
+    }
+}

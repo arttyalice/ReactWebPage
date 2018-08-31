@@ -27,7 +27,7 @@ class Header extends Component {
         return (
           <div className="Header">
             <Navbar className="NavHeader" light expand="md">
-                <NavbarBrand href="/"><img src={require("../assets/img/logo/logo_cut.png")} alt=""/></NavbarBrand>
+                <NavbarBrand href="/"><img src={require("../assets/img/logo/logo.png")} alt=""/></NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>

@@ -19,7 +19,7 @@ const MyMapComponent = compose(
   withProps({
     googleMapURL:"https://maps.googleapis.com/maps/api/js?key=AIzaSyDos7SzHEEJuVCIzEITFOSEvw-3ack4u5g&v=3.exp",
     loadingElement: <div style={{ height: '100%' }} />,
-    containerElement: <div style={{ height: '100%', width: '100%', margin: '0px 0px 0px 0px'}} />,
+    containerElement: <div style={{ height: '450px', width: '100%', margin: '0px 0px 0px 0px'}} />,
     mapElement: <div style={{ height: '100%' }} />,
   }),
   withScriptjs,
@@ -34,7 +34,7 @@ const MyMapComponent = compose(
     onIdle={props.onIdle}
     >
     {props.isMarkerShown && (
-      <Marker position={{ lat: mapMarker.lat, lng: mapMarker.lng }} defaultIcon={ require('./img/house.png') } />
+      <Marker position={{ lat: mapMarker.lat, lng: mapMarker.lng }} />
     )}
   </GoogleMap>
 ));

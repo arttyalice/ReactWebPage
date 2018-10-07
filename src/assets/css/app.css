@@ -1,139 +1,98 @@
-@import url("https://fonts.googleapis.com/css?family=Kanit|Prompt");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 body {
-  font-family: Prompt, Kanit;
+  font-family: Montserrat;
   color: #454552; }
 
 .Header {
   width: 100%; }
   .Header .NavHeader {
-    background-color: #d8e9ef; }
+    background-color: #ececec; }
     .Header .NavHeader img {
-      height: 50px;
-      margin: -15px; }
+      height: 35px;
+      margin: 0px; }
     .Header .NavHeader .imgNav {
       margin: 0 -3px 0 0px;
       height: 30px; }
     .Header .NavHeader .NavItems {
-      font-size: 18px;
-      margin-left: 10px;
-      color: #e85a71; }
+      font-size: 16px;
+      margin-left: 12px;
+      color: #436fff; }
+      .Header .NavHeader .NavItems.icon {
+        margin-left: 7px; }
+        .Header .NavHeader .NavItems.icon img {
+          height: 25px; }
       .Header .NavHeader .NavItems:hover {
-        color: #4ea1d3; }
+        color: #1fa9ff; }
 
 .CarouselStyle {
   position: relative;
-  height: 500px;
   width: 100%;
-  background: linear-gradient(to bottom right, #e85a71, #4ea1d3); }
-
-.HomeContent {
-  width: 100%; }
-  .HomeContent h1 {
-    margin: 15px 0 0 0;
-    font-weight: bolder;
+  overflow: hidden; }
+  .CarouselStyle img {
+    min-height: 500px;
+    max-height: 500px;
     width: 100%;
-    text-align: center; }
-  .HomeContent h2 {
-    margin-top: 20px;
-    font-size: 28px;
-    font-weight: bold; }
-  .HomeContent p {
-    font-size: 18px; }
+    -o-object-fit: cover;
+    object-fit: cover; }
 
-.ContentStyle {
-  color: #454552;
-  width: 80%;
-  margin-left: 10%; }
-
-.contact {
-  width: 100%; }
-  .contact .row {
-    margin: 0;
-    padding: 10px; }
-  .contact .contactSide {
-    margin: 0;
-    width: 30%; }
-
-.PropotyStyle .searchNav {
-  margin: auto;
-  margin-top: 35px;
-  width: 80%;
-  padding: 15px; }
-  .PropotyStyle .searchNav .btn {
-    background: linear-gradient(to bottom right, #00d9ff, #4ea1d3);
-    outline: none;
-    border: none; }
-    .PropotyStyle .searchNav .btn:hover {
-      background-color: #1e3ad8; }
-  .PropotyStyle .searchNav .SearchGrp {
-    width: 100%;
-    margin: 15px 0 15px 0; }
-  .PropotyStyle .searchNav .nav-tabs {
-    border-bottom: 1px solid #dddddd; }
-  .PropotyStyle .searchNav .nav-tabs.nav-item.show .nav-link, .PropotyStyle .searchNav .nav-tabs .nav-link.active {
-    border-color: #dddddd #dddddd #fff; }
-  .PropotyStyle .searchNav .tab-content {
-    border: solid 1px #dddddd;
-    border-top: none;
-    border-radius: 5px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    padding: 15px; }
-
-.PropotyStyle h1 {
-  margin: 15px 0 0 0;
-  font-weight: bolder;
-  width: 100%;
-  text-align: center; }
-
-.PropotyStyle h2 {
-  margin-top: 20px;
-  font-size: 28px;
-  font-weight: bold; }
-
-.PropotyStyle p {
-  font-size: 18px; }
-
-.PropotyStyle .row {
-  margin: 0; }
-
-.Container h1 {
-  font-size: 32px;
+.container h1 {
+  font-size: 38px;
   text-align: center;
-  font-weight: bolder; }
+  font-weight: bolder;
+  margin: 25px 0 0 0; }
 
-.Container h4 {
+.container h4 {
   margin: 0 0 0 25px; }
 
-.Container p {
-  text-align: justify;
-  margin: 20px 20px 20px 50px; }
-  .Container p.normaltext {
+.container p {
+  text-align: justify; }
+  .container p.normaltext {
     margin: 20px 20px 20px 25px; }
-  .Container p.indentText {
+  .container p.indentText {
     text-indent: 50px; }
 
-.Container ul li {
+.container ul li {
   margin: 5px 5px 5px 50px; }
 
-.Container img {
+.container .aboutImg {
   width: 50%;
-  margin: 0 0 30px 25%; }
+  height: 50%;
+  margin: 25px 0 30px 25%;
+  border-radius: 5px; }
+
+.container .contactContent {
+  margin: 20px 0 25px 0; }
+  .container .contactContent .imgSide {
+    text-align: center; }
+    .container .contactContent .imgSide img {
+      border: #d6d6d6 1px solid;
+      border-radius: 5px;
+      height: 250px; }
 
 .cardContainer {
   margin: 0 0 30px 0; }
   .cardContainer .card {
-    height: 350px;
+    height: 392px;
     width: 310px;
     margin: auto;
     margin-top: 15px; }
     .cardContainer .card img {
       width: 100%;
       height: 180px;
-      background: linear-gradient(to bottom right, #e85a71, #4ea1d3); }
+      background: linear-gradient(to bottom right, #3061ca, #1fa9ff); }
     .cardContainer .card .btn {
-      background: linear-gradient(to bottom right, #4ea1d3, #00d9ff);
+      background: linear-gradient(to bottom right, #1fa9ff, #00e1ff);
       outline: none;
       border: none; }
       .cardContainer .card .btn:hover {
         background-color: #1e3ad8; }
+      .cardContainer .card .btn.editBtn {
+        width: 100px;
+        background: linear-gradient(to bottom right, #5cda9b, #5cc599); }
+      .cardContainer .card .btn.deleteBtn {
+        width: 100px;
+        margin-left: 15px;
+        background: linear-gradient(to bottom right, #ff3381, #c5004c); }
+
+modal-content input {
+  width: 100%; }

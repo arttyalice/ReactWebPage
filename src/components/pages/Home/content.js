@@ -1,13 +1,29 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, Button } from 'reactstrap'
 
-import transPic from "../../../assets/img/tran.png";
+import axios from 'axios'
 
 class Contents extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            propData: []
+        }
+        
+    }
+
+    componentDidMount() {
+        axios.get('http://www.orbitsdvl.co.th/api/buildings')
+            .then(res => {
+                this.setState({
+                    propData: res.data
+                })
+            })
+    }
     render() {
         return (
             <div className="HomeContent mx-auto">
-                
                 <Container>
                     <Row>
                         <Col>
@@ -42,32 +58,21 @@ class Contents extends Component {
                     <hr/>
 
                     <Row className="cardContainer mx-auto">
-                            <Card>
-                                <CardImg top width="100%" src={transPic}/>
-                                <CardBody>
-                                    <CardTitle>6,700,00 บาท</CardTitle>
-                                    <CardText>ที่นี่ที่ไหนเอ่ย</CardText>
-                                    <Button>More...</Button>
-                                </CardBody>
-                            </Card>
-
-                            <Card>
-                                <CardImg top width="100%" src={transPic}/>
-                                <CardBody>
-                                    <CardTitle>6,700,00 บาท</CardTitle>
-                                    <CardText>ที่นี่ที่ไหนเอ่ย</CardText>
-                                    <Button>More...</Button>
-                                </CardBody>
-                            </Card>
-
-                            <Card>
-                                <CardImg top width="100%" src={transPic}/>
-                                <CardBody>
-                                    <CardTitle>6,700,00 บาท</CardTitle>
-                                    <CardText>ที่นี่ที่ไหนเอ่ย</CardText>
-                                    <Button>More...</Button>
-                                </CardBody>
-                            </Card>
+                        {
+                            this.state.propData.map((data, i) => {
+                                return (
+                                    <Card key={i}>
+                                        <CardImg top width="100%" src={data.img}/>
+                                        <CardBody>
+                                            <CardTitle>{data.building_address}</CardTitle>
+                                            <CardText>{data.building_type}</CardText>
+                                            <CardText>{data.area}</CardText>
+                                            <Button>Please Contact</Button>
+                                        </CardBody>
+                                    </Card>
+                                )
+                            })
+                        }
                     </Row>
                 </Container>
             </div>

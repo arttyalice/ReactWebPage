@@ -1,0 +1,413 @@
+@import url(https://fonts.googleapis.com/css?family=Kanit|Prompt|Roboto|Archivo|Karla);
+
+body,
+html {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: Karla, Archivo, Roboto, Prompt, Kanit;
+    color: #3a3a3a
+}
+
+body #root,
+body #root .App {
+    height: 100%
+}
+
+body a {
+    color: #0872ba
+}
+
+body a:hover {
+    color: #f79421
+}
+
+.Header {
+    width: 100%
+}
+
+.Header .NavHeader {
+    background-color: #ededf1
+}
+
+.Header .NavHeader img {
+    height: 35px
+}
+
+.Header .NavHeader .imgNav {
+    margin: 0;
+    height: 25px
+}
+
+.Header .NavHeader .NavItems {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #0872ba
+}
+
+.Header .NavHeader .NavItems:hover {
+    color: #f79421
+}
+
+.CarouselStyle {
+    position: relative;
+    width: 100%;
+    overflow: hidden
+}
+
+.CarouselStyle img {
+    min-height: 500px;
+    max-height: 500px;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.HomeContent {
+    width: 100%
+}
+
+.HomeContent h1 {
+    margin: auto;
+    margin-top: 30px;
+    display: inline-block;
+    font-weight: 700
+}
+
+.HomeContent h1.collapH1 {
+    margin: auto;
+    margin-top: 30px;
+    cursor: pointer
+}
+
+.HomeContent h1.collapH1:hover {
+    color: #f79421;
+    text-decoration: underline
+}
+
+.HomeContent h2 {
+    display: inline-block;
+    margin: auto;
+    font-size: 28px;
+    font-weight: 700
+}
+
+.HomeContent p {
+    font-size: 18px
+}
+
+.HomeContent .col-6 {
+    text-align: center
+}
+
+.ContentStyle {
+    color: #3a3a3a;
+    min-height: 100%;
+    width: 100%;
+    margin: 0
+}
+
+.ContentStyle h1 {
+    margin-top: 30px;
+    text-align: center
+}
+
+.ContentStyle h2 {
+    margin-left: 15px
+}
+
+.ContentStyle ul {
+    margin-left: 30px
+}
+
+.AboutStyle {
+    color: #3a3a3a;
+    min-height: 100%;
+    width: 100%;
+    margin: 0
+}
+
+.AboutStyle h1 {
+    margin-top: 30px;
+    text-align: center
+}
+
+.AboutStyle h2 {
+    margin-left: 15px
+}
+
+.AboutStyle ul {
+    margin-left: 30px
+}
+
+.AboutStyle .indentText {
+    text-indent: 30px
+}
+
+.AboutStyle .container img {
+    width: 50%;
+    margin: 20px 25% 25px
+}
+
+.contact {
+    width: 100%;
+    height: 100%;
+    text-align: center
+}
+
+.contact img.notMap {
+    width: 100%;
+    min-width: 200px;
+    max-width: 350px;
+    border: 1px solid #ddd;
+    border-color: #ddd #c4c4c4 #c4c4c4 #ddd;
+    border-radius: 8px
+}
+
+.contact .row {
+    margin: 0;
+    padding: 10px
+}
+
+.contact .row .col p {
+    text-align: justify
+}
+
+.contact .contactSide {
+    margin: 0;
+    width: 30%;
+    min-width: 200px
+}
+
+.contact .Mapstyle {
+    height: 500px;
+    margin: 0;
+    padding: 0
+}
+
+.PropotyStyle .searchNav {
+    margin: auto;
+    margin-top: 35px;
+    width: 80%;
+    padding: 15px
+}
+
+.PropotyStyle .searchNav .btn {
+    background: -webkit-gradient(linear, left top, right bottom, from(#00d9ff), to(#3464ff));
+    background: -webkit-linear-gradient(top left, #00d9ff, #3464ff);
+    background: -o-linear-gradient(top left, #00d9ff, #3464ff);
+    background: linear-gradient(to bottom right, #00d9ff, #3464ff);
+    outline: none;
+    border: none
+}
+
+.PropotyStyle .searchNav .btn:hover {
+    background-color: #1e3ad8
+}
+
+.PropotyStyle .searchNav .SearchGrp {
+    width: 100%;
+    margin: 15px 0
+}
+
+.PropotyStyle .searchNav .nav-tabs {
+    border-bottom: 1px solid #ddd
+}
+
+.PropotyStyle .searchNav .nav-tabs.nav-item.show .nav-link,
+.PropotyStyle .searchNav .nav-tabs .nav-link.active {
+    border-color: #ddd #ddd #fff
+}
+
+.PropotyStyle .searchNav .tab-content {
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 15px
+}
+
+.PropotyStyle h1 {
+    margin: 15px 0 0;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center
+}
+
+.PropotyStyle h2 {
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: 700
+}
+
+.PropotyStyle p {
+    font-size: 18px
+}
+
+.PropotyStyle .row {
+    margin: 0
+}
+
+.ComingsoonStyle {
+    width: 100%;
+    height: 100%
+}
+
+.ComingsoonStyle .ComingsoonBG {
+    height: 100%;
+    background-image: url(/static/media/comingsoonbg4.7742bf9c.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.ComingsoonStyle .ComingsoonWarp {
+    width: 55%;
+    background-color: hsla(0, 0%, 100%, .8);
+    position: relative;
+    top: 30%;
+    left: 22.5%;
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center
+}
+
+@media (max-width:700px) {
+    .ComingsoonStyle .ComingsoonWarp {
+        width: 80%;
+        left: 10%
+    }
+}
+
+.ComingsoonStyle .ComingsoonWarp img {
+    width: 20%;
+    height: auto
+}
+
+@media (max-width:700px) {
+    .ComingsoonStyle .ComingsoonWarp img {
+        width: 50%
+    }
+}
+
+.ComingsoonStyle .ComingsoonWarp .bububuText {
+    color: #284ab9;
+    font-size: 26px;
+    margin: 30px 60px
+}
+
+@media (max-width:992px) {
+    .ComingsoonStyle .ComingsoonWarp .bububuText {
+        font-size: 16px
+    }
+}
+
+@media (max-width:567px) {
+    .ComingsoonStyle .ComingsoonWarp .bububuText {
+        display: none
+    }
+}
+
+.ComingsoonStyle .ComingsoonWarp .ComingsoonHeadText {
+    font-size: 50px;
+    color: #0872ba
+}
+
+@media (max-width:992px) {
+    .ComingsoonStyle .ComingsoonWarp .ComingsoonHeadText {
+        font-size: 35px
+    }
+}
+
+.ComingsoonStyle .ComingsoonWarp h2 {
+    color: #0872ba;
+    font-size: 40px
+}
+
+@media (max-width:992px) {
+    .ComingsoonStyle .ComingsoonWarp h2 {
+        margin-top: 30px;
+        font-size: 25px
+    }
+}
+
+.ComingsoonStyle .ComingsoonWarp .comingsoonLogo {
+    margin: 30px 0 0
+}
+
+.ComingsoonStyle .ComingsoonWarp .followLogo {
+    width: 34px;
+    margin: 0 15px
+}
+
+.Container h1 {
+    margin-top: 30px;
+    font-size: 32px;
+    text-align: center;
+    font-weight: bolder
+}
+
+.Container h4 {
+    margin: 0 0 0 25px
+}
+
+.Container p {
+    text-align: justify;
+    margin: 10px 40px
+}
+
+.Container p.normaltext {
+    margin: 20px 20px 20px 25px
+}
+
+.Container p.indentText {
+    text-indent: 25px
+}
+
+.Container ul li {
+    margin: 5px 5px 5px 50px
+}
+
+.Container img {
+    width: 50%;
+    margin: 0 0 30px 25%
+}
+
+.cardContainer {
+    margin: auto;
+    margin-bottom: 30px
+}
+
+.cardContainer .card {
+    height: 350px;
+    width: 310px;
+    margin: auto;
+    margin-top: 15px
+}
+
+.cardContainer .card img {
+    width: 100%;
+    height: 180px;
+    background: -webkit-gradient(linear, left top, right bottom, from(#00d9ff), to(#3464ff));
+    background: -webkit-linear-gradient(top left, #00d9ff, #3464ff);
+    background: -o-linear-gradient(top left, #00d9ff, #3464ff);
+    background: linear-gradient(to bottom right, #00d9ff, #3464ff)
+}
+
+.cardContainer .card .btn {
+    background-color: #0872ba;
+    outline: none;
+    border: none
+}
+
+.cardContainer .card .btn:hover {
+    background-color: #f79421
+}
+
+.cardContainer .card .btn:active {
+    background-color: #ddd
+}
+
+/*# sourceMappingURL=main.1d35e6d0.css.map*/

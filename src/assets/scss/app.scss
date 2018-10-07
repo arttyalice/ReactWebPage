@@ -1,23 +1,23 @@
 //font from google
-@import url('https://fonts.googleapis.com/css?family=Kanit|Prompt');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 
 //Color Pallete
-$PrimaryBackground: #d8e9ef ;
-$SecondaryBackground: #e85a71 ;
+$PrimaryBackground: #ececec ;
+$SecondaryBackground: #436fff ;
 $fontC: #454552;
 $aC: rgb(24, 18, 104);
 $aHovC: rgb(36, 69, 255);
 $btnHovC: rgb(30, 58, 216);
 $borderC: rgb(221, 221, 221);
 
-$seafoam: rgb(0, 217, 255);
-$lightblue: #4ea1d3;
-$berryRed: #e85a71;
+$seafoam: rgb(0, 225, 255);
+$lightblue: #1fa9ff;
+$berryRed: #3061ca;
 $alertOrange: rgb(255, 128, 44);
 
 body {
-    font-family: Prompt, Kanit;
+    font-family: Montserrat;
     color: $fontC;
 }
 
@@ -29,8 +29,8 @@ body {
         background-color: $PrimaryBackground;
 
         img {
-            height: 50px;
-            margin: -15px;
+            height: 35px;
+            margin: 0px;
         }
 
         .imgNav {
@@ -39,9 +39,15 @@ body {
         }
         
         .NavItems {
-            font-size: 18px;
-            margin-left: 10px;
+            font-size: 16px;
+            margin-left: 12px;
             color: $SecondaryBackground;
+                &.icon {
+                    margin-left: 7px;
+                    img {
+                        height: 25px;
+                    }
+                }
 
             &:hover {
                 color: $lightblue;
@@ -54,125 +60,24 @@ body {
 //Slide.js
 .CarouselStyle {
     position: relative;
-    height: 500px;
     width: 100%;
-    background: linear-gradient(to bottom right, $berryRed, $lightblue);
-}
+    overflow: hidden;
 
-//Home.js
-.HomeContent {
-    width: 100%;
-    
-    h1 {
-        margin: 15px 0 0 0; 
-        font-weight: bolder;
+    img {
+        min-height: 500px;
+        max-height: 500px;
         width: 100%;
-        text-align: center;
-    }
-    
-    h2 {
-        margin-top: 20px; 
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    p {
-        font-size: 18px;
+        -o-object-fit: cover;
+        object-fit: cover
     }
 }
 
-//content.js
-.ContentStyle {
-    color: $fontC;
-    width: 80%;
-    margin-left: 10%;
-}
-
-//Contact.js
-.contact {
-    width: 100%;
-    
-
-    .row {
-        margin: 0;
-        padding: 10px;
-    }
-
-    .contactSide {
-        margin: 0;
-        width: 30%;
-    }
-}
-
-.PropotyStyle {
-
-    .searchNav {
-        margin: auto;
-        margin-top: 35px;
-        width: 80%;
-        padding: 15px;
-
-        .btn {
-            background: linear-gradient(to bottom right, $seafoam, $lightblue);
-            outline: none;
-            border: none;
-
-            &:hover {
-                background-color: $btnHovC;
-            }
-        }
-
-        .SearchGrp {
-            width: 100%;
-            margin: 15px 0 15px 0;
-        }
-
-        .nav-tabs {
-            border-bottom: 1px solid $borderC;
-        }
-
-        .nav-tabs.nav-item.show .nav-link, .nav-tabs .nav-link.active {
-            border-color: $borderC $borderC #fff;
-        }
-
-        .tab-content {
-            border: solid 1px $borderC;
-            border-top: none;
-            border-radius: 5px;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-            padding: 15px;
-        }
-    }
-
+.container {
     h1 {
-        margin: 15px 0 0 0; 
-        font-weight: bolder;
-        width: 100%;
-        text-align: center;
-    }
-
-    h2 {
-        margin-top: 20px; 
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    p {
-        font-size: 18px;
-    }
-
-    .row {
-        margin: 0;
-    }
-}
-
-.Container {
-
-    h1 {
-        font-size: 32px;
+        font-size: 38px;
         text-align: center;
         font-weight: bolder;
+        margin: 25px 0 0 0;
     }
 
     h4 {
@@ -181,7 +86,6 @@ body {
 
     p {
         text-align: justify;
-        margin: 20px 20px 20px 50px;
 
         &.normaltext {
             margin: 20px 20px 20px 25px;
@@ -198,9 +102,25 @@ body {
         }
     }
 
-    img {
+    .aboutImg {
         width: 50%;
-        margin: 0 0 30px 25%;
+        height: 50%;
+        margin: 25px 0 30px 25%;
+        border-radius: 5px;
+    }
+
+    .contactContent {
+        margin: 20px 0 25px 0;
+
+        .imgSide {
+            text-align: center;
+
+            img {
+                border: #d6d6d6 1px solid;
+                border-radius: 5px;
+                height: 250px;
+            }
+        }
     }
 }
 
@@ -208,7 +128,7 @@ body {
     margin: 0 0 30px 0;
 
     .card {
-        height: 350px;
+        height: 392px;
         width: 310px;
         margin: auto;
         margin-top: 15px;
@@ -227,6 +147,23 @@ body {
             &:hover {
                 background-color: $btnHovC;
             }
+
+            &.editBtn {
+                width: 100px;
+                background: linear-gradient(to bottom right, rgb(92, 218, 155), rgb(92, 197, 153));
+            }
+        
+            &.deleteBtn {
+                width: 100px;
+                margin-left: 15px;
+                background: linear-gradient(to bottom right, rgb(255, 51, 129), rgb(197, 0, 76));
+            }
         }
+    }
+}
+
+modal-content {
+    input {
+        width: 100%;
     }
 }

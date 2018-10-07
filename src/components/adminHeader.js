@@ -8,6 +8,7 @@ import {
     NavItem } from 'reactstrap';
 
 import { NavLink } from 'react-router-dom';
+import Propoties from './pages/propoties';
 
 class Header extends Component {
     constructor(props) {
@@ -36,22 +37,10 @@ class Header extends Component {
                                     <NavLink to="/" className="NavItems">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="/Service" className="NavItems">Service</NavLink>
+                                    <NavLink to="/Service" className="NavItems">Manage Propoties</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink to="/Propoties" className="NavItems">Property Search</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink to="/About" className="NavItems">about us</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink to="/Contact" className="NavItems">Contact us</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink to="/Contact" className="NavItems icon"><img className="imgNav" src={require("../assets/img/logo/fc.png")} alt=""/></NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink to="/Contact" className="NavItems icon"><img className="imgNav" src={require("../assets/img/logo/line.png")} alt=""/></NavLink>
                                 </NavItem>
                             </Nav>
                     </Collapse>

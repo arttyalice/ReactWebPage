@@ -27,13 +27,11 @@ class Admin extends Component {
             editModal: false,
             InsertModal: false,
             deleteModal: false,
-            selBuilding: {},
-            selBuildingTmp: {
-                building_type: null,
-                building_address: null,
-                area: null,
-                building_id: null
-            }
+            name: null,
+            address: null,
+            area: null,
+            selBuilding_id: null,
+            selImg: null
         }
         this.toggleInsert = this.toggleInsert.bind(this)
         this.toggleEdit = this.toggleEdit.bind(this)
@@ -44,31 +42,21 @@ class Admin extends Component {
     }
 
     handleChange(e) {
-        if(e.target.name === 'name') {
-            this.setState({
-                selBuilding: {
-                    building_type: e.target.value
-                }
-            })
-        } else if (e.target.name === 'address') {
-            this.setState({
-                selBuilding: {
-                    building_address: e.target.value
-                }
-            })
-        } else {
-            this.setState({
-                selBuilding: {
-                    area: e.target.value
-                }
-            })
-        }
+        let stateObj = function() {
+            let obj = {}
+            obj[this.target.name] = this.target.value
+            return obj
+        }.bind(e)()
+        this.setState(stateObj)
     }
 
     componentDidMount() {
         this.fetchData()
     }
     async fetchData() {
+        this.setState({
+            propData: []
+        })
         let reader = new FileReader()
         await axios.get('http://www.orbitsdvl.co.th/api/buildings')
             .then(res => {
@@ -78,18 +66,20 @@ class Admin extends Component {
                         reader.readAsDataURL(e.img)
                         reader.onload = () => {
                             base64data = reader.result
-                            console.log(base64data)
                         }
                     }
                     this.setState({
                         propData: [
                             ...this.state.propData,
-                            { building_address: e.building_address, building_type: e.building_type, building_id: e.building_id, img: base64data }
+                            { 
+                                building_address: e.building_address,
+                                building_type: e.building_type,
+                                building_id: e.building_id,
+                                area: e.area,
+                                img: base64data 
+                            }
                         ]
                     })
-                });
-                this.setState({
-                    propData: res.data
                 })
             })
     }
@@ -101,13 +91,16 @@ class Admin extends Component {
     toggleEdit(data) {
         this.setState({
             editModal: !this.state.editModal,
-            selBuilding: data
+            name: data.building_type,
+            address: data.building_address,
+            area: data.area,
+            selBuilding_id: data.building_id
         })
     }
     toggleDelete(data) {
         this.setState({
             deleteModal: !this.state.deleteModal,
-            selBuilding: data
+            selBuilding_id: data.building_id
         })
     }
     insertData(event) {
@@ -134,16 +127,20 @@ class Admin extends Component {
             const input = data.get(name)
             req.append(name, input)
         }
-        axios.post('http://www.orbitsdvl.co.th/api/buildings/' + this.state.selBuilding.building_id, req)
+        this.setState({
+            editModal: false
+        })
+        axios.post('http://www.orbitsdvl.co.th/api/buildings/' + this.state.selBuilding_id, req)
             .then(res => {
-                this.toggleEdit()
                 this.fetchData()
             })
     }
     deleteData() {
-        axios.post('http://www.orbitsdvl.co.th/api/buildings/delete/' + this.state.selBuilding.building_id)
+        this.setState({
+            deleteModal: false
+        })
+        axios.post('http://www.orbitsdvl.co.th/api/buildings/delete/' + this.state.selBuilding_id)
             .then(res => {
-                this.toggleDelete()
                 this.fetchData()
             })
     }
@@ -251,7 +248,7 @@ class Admin extends Component {
                                 <Label name="name">Type: </Label>
                             </Col>
                             <Col xs="10">
-                                <Input id="name" name="name" type="text" onChange={this.handleChange.bind(this)} value={this.state.selBuilding.building_type}/>
+                                <Input id="name" name="name" type="text" onChange={this.handleChange.bind(this)} value={this.state.name}/>
                             </Col>
                         </Row>
                         <Row>
@@ -259,7 +256,7 @@ class Admin extends Component {
                                 <Label name="address">Address: </Label>
                             </Col>
                             <Col xs="10">
-                                <Input id="address" name="address" type="text" onChange={this.handleChange.bind(this)} value={this.state.selBuilding.building_address}/>
+                                <Input id="address" name="address" type="text" onChange={this.handleChange.bind(this)} value={this.state.address}/>
                             </Col>
                         </Row>
                         <Row>
@@ -267,7 +264,7 @@ class Admin extends Component {
                                 <Label name="area">Size: </Label>
                             </Col>
                             <Col xs="10">
-                                <Input id="area" name="area" type="text" onChange={this.handleChange.bind(this)} value={this.state.selBuilding.area}/>
+                                <Input id="area" name="area" type="text" onChange={this.handleChange.bind(this)} value={this.state.area}/>
                             </Col>
                         </Row>
                         {/* <Row>

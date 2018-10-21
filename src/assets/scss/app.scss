@@ -4,14 +4,14 @@
 
 //Color Pallete
 $PrimaryBackground: #ececec ;
-$SecondaryBackground: #436fff ;
+$SecondaryBackground: #436fff;
 $fontC: #454552;
 $aC: rgb(24, 18, 104);
 $aHovC: rgb(36, 69, 255);
 $btnHovC: rgb(30, 58, 216);
 $borderC: rgb(221, 221, 221);
 
-$seafoam: rgb(0, 225, 255);
+$seafoam: rgb(0, 195, 255);
 $lightblue: #1fa9ff;
 $berryRed: #3061ca;
 $alertOrange: rgb(255, 128, 44);
@@ -166,4 +166,34 @@ modal-content {
     input {
         width: 100%;
     }
+}
+
+.loader {
+    display: block;
+    position: absolute;
+    width: 150;
+    top: 40vh;
+    left: calc(50% - 75px);
+    .row {
+        display: block;
+    }
+}
+
+.block {
+    background-image: url('../img/img4.jpg');
+    background-position: center;
+    background-size: auto;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.comingContent {
+    width: 50%;
+    height: 300px;
+    text-align: center;
+    background-color: rgba(196, 196, 196, 0.8);
 }

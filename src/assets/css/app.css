@@ -81,7 +81,7 @@ body {
       height: 180px;
       background: linear-gradient(to bottom right, #3061ca, #1fa9ff); }
     .cardContainer .card .btn {
-      background: linear-gradient(to bottom right, #1fa9ff, #00e1ff);
+      background: linear-gradient(to bottom right, #1fa9ff, #00c3ff);
       outline: none;
       border: none; }
       .cardContainer .card .btn:hover {
@@ -96,3 +96,29 @@ body {
 
 modal-content input {
   width: 100%; }
+
+.loader {
+  display: block;
+  position: absolute;
+  width: 150;
+  top: 40vh;
+  left: calc(50% - 75px); }
+  .loader .row {
+    display: block; }
+
+.block {
+  background-image: url("../img/img4.jpg");
+  background-position: center;
+  background-size: auto;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.comingContent {
+  width: 50%;
+  height: 300px;
+  text-align: center;
+  background-color: rgba(196, 196, 196, 0.8); }

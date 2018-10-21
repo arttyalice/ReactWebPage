@@ -48,7 +48,7 @@ class Header extends Component {
                                     <NavLink to="/Contact" className="NavItems">Contact us</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="/Contact" className="NavItems icon"><img className="imgNav" src={require("../assets/img/logo/fc.png")} alt=""/></NavLink>
+                                    <a href="https://www.facebook.com/smartpropertywatch/" className="NavItems icon"><img className="imgNav" src={require("../assets/img/logo/fc.png")} alt=""/></a>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink to="/Contact" className="NavItems icon"><img className="imgNav" src={require("../assets/img/logo/line.png")} alt=""/></NavLink>

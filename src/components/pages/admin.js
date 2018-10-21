@@ -18,6 +18,7 @@ import {
     Label
 } from "reactstrap";
 import axios from "axios"
+import Loader from 'react-loader-spinner'
 
 class Admin extends Component {
     constructor() {
@@ -31,7 +32,9 @@ class Admin extends Component {
             address: null,
             area: null,
             selBuilding_id: null,
-            selImg: null
+            selImg: null,
+            imgs: [],
+            isLoading: false
         }
         this.toggleInsert = this.toggleInsert.bind(this)
         this.toggleEdit = this.toggleEdit.bind(this)
@@ -39,6 +42,7 @@ class Admin extends Component {
         this.insertData = this.insertData.bind(this)
         this.editData = this.editData.bind(this)
         this.deleteData = this.deleteData.bind(this)
+        this.onImageAdd = this.onImageAdd.bind(this)
     }
 
     handleChange(e) {
@@ -55,19 +59,12 @@ class Admin extends Component {
     }
     async fetchData() {
         this.setState({
-            propData: []
+            propData: [],
+            isLoading: true
         })
-        let reader = new FileReader()
         await axios.get('http://www.orbitsdvl.co.th/api/buildings')
             .then(res => {
                 res.data.forEach(e => {
-                    let base64data
-                    if (e.img !== null) {
-                        reader.readAsDataURL(e.img)
-                        reader.onload = () => {
-                            base64data = reader.result
-                        }
-                    }
                     this.setState({
                         propData: [
                             ...this.state.propData,
@@ -76,12 +73,15 @@ class Admin extends Component {
                                 building_type: e.building_type,
                                 building_id: e.building_id,
                                 area: e.area,
-                                img: base64data 
+                                img: e.img
                             }
-                        ]
+                        ],
                     })
                 })
             })
+        this.setState({
+            isLoading: false
+        })
     }
     toggleInsert() {
         this.setState({
@@ -103,8 +103,11 @@ class Admin extends Component {
             selBuilding_id: data.building_id
         })
     }
-    insertData(event) {
+    async insertData(event) {
         event.preventDefault()
+        this.setState({
+            isLoading: true
+        })
         let form = event.target
         let data = new FormData(form)
         let req = new FormData()
@@ -112,13 +115,22 @@ class Admin extends Component {
             const input = data.get(name)
             req.append(name, input)
         }
-        axios.post('http://www.orbitsdvl.co.th/api/buildings', req)
+        req.append('img', this.state.imgs)
+
+        // await axios.post('http://www.orbitsdvl.co.th/api/buildings', req)
+        await axios.post('http://www.orbitsdvl.co.th/api/buildings', req)
             .then(res => {
                 this.toggleInsert()
                 this.fetchData()
             })
+        this.setState({
+            isLoading: false
+        })
     }
-    editData(event) {
+    async editData(event) {
+        this.setState({
+            isLoading: true
+        })
         event.preventDefault()
         let form = event.target
         let data = new FormData(form)
@@ -127,27 +139,75 @@ class Admin extends Component {
             const input = data.get(name)
             req.append(name, input)
         }
+        req.append('img', this.state.imgs)
         this.setState({
             editModal: false
         })
-        axios.post('http://www.orbitsdvl.co.th/api/buildings/' + this.state.selBuilding_id, req)
+        // axios.post('http://www.orbitsdvl.co.th/api/buildings/' + this.state.selBuilding_id, req)
+        await axios.post('http://www.orbitsdvl.co.th/api/buildings/' + this.state.selBuilding_id, req)
             .then(res => {
+                console.log(res.data)
                 this.fetchData()
             })
-    }
-    deleteData() {
         this.setState({
+            isLoading: false
+        })
+    }
+    async deleteData() {
+        this.setState({
+            isLoading: true,
             deleteModal: false
         })
-        axios.post('http://www.orbitsdvl.co.th/api/buildings/delete/' + this.state.selBuilding_id)
+        await axios.post('http://www.orbitsdvl.co.th/api/buildings/delete/' + this.state.selBuilding_id)
             .then(res => {
                 this.fetchData()
             })
+        this.setState({
+            isLoading: false
+        })
+    }
+    onImageAdd(event) {
+        let files = event.target.files
+        if (!files[0]) {
+            return
+        }
+        
+        for (let file of files) {
+            var reader = new FileReader()
+            reader.onload = event => {
+                //image size reducer
+                if (file.size > 1000000) {
+                    var image = new Image()
+                    image.onload = () => {
+                        let tmp = this.imageToDataUri(image, image.width / 5, image.height / 5)
+                        console.log(tmp)
+                        this.setState({
+                            imgs: btoa(tmp)
+                        })
+                    }
+                    image.src = event.target.result
+                } else {
+                    this.setState({
+                        imgs: btoa(event.target.result)
+                    })
+                }
+            }
+            reader.readAsDataURL(file)
+        }
+    }
+    imageToDataUri(img, width, height) {
+        var canvas = document.createElement('canvas')
+        let ctx = canvas.getContext('2d');
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
+        return canvas.toDataURL();
     }
 
     render () {
         return (
             <div className="HomeContent mx-auto">
+            
             <Container>
                 <Row>
                     <Col>
@@ -169,7 +229,7 @@ class Admin extends Component {
                         this.state.propData.map((data, i) => {
                             return (
                                 <Card key={i}>
-                                    <CardImg top width="100%" src={data.img}/>
+                                    <CardImg top width="100%" src={atob(data.img)}/>
                                     <CardBody>
                                     <CardTitle>{data.building_address}</CardTitle>
                                             <CardText>{data.building_type}</CardText>
@@ -190,6 +250,27 @@ class Admin extends Component {
             </Container>
             
             {
+                // Loader 
+            }
+            <Modal isOpen={this.state.isLoading} className="loader">
+                <ModalBody>
+                    <Row>
+                        <Col>
+                            <Loader 
+                                type="Watch"
+                                color="#4395ff"
+                                height="100"	
+                                width="100"
+                            />  
+                        </Col>
+                        <Col>
+                            Please wait...
+                        </Col>
+                    </Row>
+                </ModalBody>
+            </Modal>
+
+            {
                 // Add 
             }
             <Modal isOpen={this.state.InsertModal} toggle={this.toggleInsert}>
@@ -200,7 +281,7 @@ class Admin extends Component {
                             <Col xs="2">
                                 <label name="name">Type: </label>
                             </Col>
-                            <Col xs="8">
+                            <Col xs="10">
                                 <input id="name" name="name" type="text" />
                             </Col>
                         </Row>
@@ -208,7 +289,7 @@ class Admin extends Component {
                             <Col xs="2">
                                 <label name="address">Address: </label>
                             </Col>
-                            <Col xs="8">
+                            <Col xs="10">
                                 <input id="address" name="address" type="text" />
                             </Col>
                         </Row>
@@ -216,18 +297,18 @@ class Admin extends Component {
                             <Col xs="2">
                                 <label name="area">Size: </label>
                             </Col>
-                            <Col xs="8">
+                            <Col xs="10">
                                 <input id="area" name="area" type="text" />
                             </Col>
                         </Row>
-                        {/* <Row>
+                        <Row>
                             <Col xs="2">
                                 <label name="img">img: </label>
                             </Col>
-                            <Col xs="8">
-                                <input id="img" name="img" type="file" />
+                            <Col xs="10">
+                                <input id="img" name="img" type="file" onChange={this.onImageAdd}/>
                             </Col>
-                        </Row> */}
+                        </Row>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary">Submit</Button>{' '}
@@ -267,14 +348,14 @@ class Admin extends Component {
                                 <Input id="area" name="area" type="text" onChange={this.handleChange.bind(this)} value={this.state.area}/>
                             </Col>
                         </Row>
-                        {/* <Row>
+                        <Row>
                             <Col xs="2">
                                 <label name="img">img: </label>
                             </Col>
                             <Col xs="8">
-                                <Input id="img" name="img" type="file" />
+                                <input id="img" name="img" type="file" onChange={this.onImageAdd}/>
                             </Col>
-                        </Row> */}
+                        </Row>
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary">Submit</Button>{' '}

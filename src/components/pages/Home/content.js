@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, Button } from 'reactstrap'
-
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 class Contents extends Component {
@@ -13,11 +13,22 @@ class Contents extends Component {
         
     }
 
-    componentDidMount() {
-        axios.get('http://www.orbitsdvl.co.th/api/buildings')
+    async componentDidMount() {
+        await axios.get('http://www.orbitsdvl.co.th/api/buildings')
             .then(res => {
-                this.setState({
-                    propData: res.data
+                res.data.forEach(e => {
+                    this.setState({
+                        propData: [
+                            ...this.state.propData,
+                            { 
+                                building_address: e.building_address,
+                                building_type: e.building_type,
+                                building_id: e.building_id,
+                                area: e.area,
+                                img: e.img
+                            }
+                        ]
+                    })
                 })
             })
     }
@@ -62,12 +73,14 @@ class Contents extends Component {
                             this.state.propData.map((data, i) => {
                                 return (
                                     <Card key={i}>
-                                        <CardImg top width="100%" src={data.img}/>
+                                        <CardImg top width="100%" src={atob(data.img)}/>
                                         <CardBody>
                                             <CardTitle>{data.building_address}</CardTitle>
                                             <CardText>{data.building_type}</CardText>
                                             <CardText>{data.area}</CardText>
-                                            <Button>Please Contact</Button>
+                                            <Link to="/Contact">
+                                                <Button>Please contact.</Button>
+                                            </Link>
                                         </CardBody>
                                     </Card>
                                 )

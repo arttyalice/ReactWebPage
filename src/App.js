@@ -14,6 +14,12 @@ import Propoties from './components/pages/coming'
 import Admin from './components/pages/admin'
 
 class App extends Component {
+  componentDidMount() {
+    let tmp = sessionStorage.getItem('loginState')
+    if (tmp == null || tmp == undefined) {
+      sessionStorage.setItem('loginState', false)
+    }
+  }
   render() {
     return (
       <div className="App">

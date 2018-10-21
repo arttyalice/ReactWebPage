@@ -180,7 +180,7 @@ modal-content {
 }
 
 .block {
-    background-image: url('../img/img4.jpg');
+    background-image: url('../img/colors-1838392_1920.jpg');
     background-position: center;
     background-size: auto;
     height: 100vh;
@@ -189,11 +189,106 @@ modal-content {
     justify-content: center;
     align-content: center;
     align-items: center;
-}
 
-.comingContent {
-    width: 50%;
-    height: 300px;
-    text-align: center;
-    background-color: rgba(196, 196, 196, 0.8);
+    
+    .comingContent {
+        border-radius: 15px;
+        width: 50%;
+        height: fit-content;
+        padding: 10px 20px 10px 20px;
+        text-align: center;
+        background-color: rgba(196, 196, 196, 0.9);
+        
+        h1 {
+            margin-top: 10px;
+            font-weight: 900;
+        }
+        h2 {
+            margin-top: 10px;
+        }
+        
+        img {
+            height: 30px;
+            margin: 0px 10px 15px 10px;
+
+            &.logo {
+                height: 50px;
+                margin:  10px 0px;
+            }
+        }
+    }
+
+    @media (max-width: 692px) {
+        .comingContent {
+            
+            h1 {
+                margin-top: 10px;
+                font-weight: 900;
+                font-size: 34px;
+            }
+            h2 {
+                margin-top: 10px;
+                font-size: 24px;
+            }
+            
+            img {
+                height: 30px;
+                margin: 0px 10px 15px 10px;
+    
+                &.logo {
+                    height: 50px;
+                    margin:  10px 0px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 560px) {
+        .comingContent {
+            width: 90%;
+            h1 {
+                margin-top: 10px;
+                font-weight: 900;
+                font-size: 34px;
+            }
+            h2 {
+                margin-top: 10px;
+                font-size: 24px;
+            }
+            
+            img {
+                height: 30px;
+                margin: 0px 10px 15px 10px;
+    
+                &.logo {
+                    height: 40px;
+                    margin:  10px 0px;
+                }
+            }
+        }
+    }
+    @media (max-width: 446px) {
+        .comingContent {
+            
+            h1 {
+                margin-top: 10px;
+                font-weight: 900;
+                font-size: 34px;
+            }
+            h2 {
+                margin-top: 10px;
+                font-size: 24px;
+            }
+            
+            img {
+                height: 30px;
+                margin: 0px 10px 15px 10px;
+    
+                &.logo {
+                    height: 40px;
+                    margin:  10px 0px;
+                }
+            }
+        }
+    }
 }

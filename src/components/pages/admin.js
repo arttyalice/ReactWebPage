@@ -34,7 +34,12 @@ class Admin extends Component {
             selBuilding_id: null,
             selImg: null,
             imgs: [],
-            isLoading: false
+            isLoading: false,
+            login: sessionStorage.getItem('loginState') === 'true' ? true : false,
+            loginData: {
+                user: 'admin',
+                pass: 'orbitsDvl'
+            }
         }
         this.toggleInsert = this.toggleInsert.bind(this)
         this.toggleEdit = this.toggleEdit.bind(this)
@@ -43,6 +48,7 @@ class Admin extends Component {
         this.editData = this.editData.bind(this)
         this.deleteData = this.deleteData.bind(this)
         this.onImageAdd = this.onImageAdd.bind(this)
+        this.logingIN = this.logingIN.bind(this)
     }
 
     handleChange(e) {
@@ -55,7 +61,21 @@ class Admin extends Component {
     }
 
     componentDidMount() {
-        this.fetchData()
+        if(this.state.login === true) {
+            this.fetchData()
+        }
+    }
+    logingIN (event) {
+        event.preventDefault()
+        let form = event.target
+        let data = new FormData(form)
+        if (data.get('username') === this.state.loginData.user && data.get('password') === this.state.loginData.pass) {
+            sessionStorage.setItem('loginState', true)
+            this.setState({
+                login: true
+            })
+            this.fetchData()
+        }
     }
     async fetchData() {
         this.setState({
@@ -270,6 +290,35 @@ class Admin extends Component {
                 </ModalBody>
             </Modal>
 
+            {
+                // Log in 
+            }
+            <Modal isOpen={!this.state.login}>
+                <Form onSubmit={this.logingIN}>
+                    <ModalHeader>Log in</ModalHeader>
+                    <ModalBody>
+                        <Row>
+                            <Col xs="2">
+                                <label name="name">Username: </label>
+                            </Col>
+                            <Col xs="8">
+                                <input id="name" name="username" type="text"/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs="2">
+                                <label name="address">Password:  </label>
+                            </Col>
+                            <Col xs="8">
+                                <input id="address" name="password" type="password"/>
+                            </Col>
+                        </Row>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary">Submit</Button>{' '}
+                    </ModalFooter>
+                </Form>
+            </Modal>
             {
                 // Add 
             }

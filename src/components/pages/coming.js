@@ -41,7 +41,13 @@ class Propoties extends Component {
         return (
             <div className="block">
                 <div className="comingContent">
-                    Coming Soon...text
+                    <img className="logo" src={require('../../assets/img/logo/logo.png')}/>
+                    <h2>Our Website Is</h2>
+                    <h1>COMING SOON</h1>
+                    <div>
+                        <a><img src={require('../../assets/img/logo/fc.png')}/></a> 
+                        <a><img src={require('../../assets/img/logo/line.png')}/></a> 
+                    </div>
                 </div>
             </div>
         );
